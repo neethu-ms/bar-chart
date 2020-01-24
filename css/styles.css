@@ -3,10 +3,27 @@
 }
 
 table, th, td {
-  border: 1px solid black;
+  border: 2px solid black;
   border-collapse: collapse;
+  background-color: lightgrey;
 }
 
-td {
+th, td {
   text-align: center;
+  padding: 10px;
+}
+
+th {
+  font-size: 1.3em;
+  color: blue;
+}
+
+caption {
+  color: red;
+  font-size: 1.8em;
+}
+
+h1 {
+  text-align: center;
+  color: firebrick;
 }
