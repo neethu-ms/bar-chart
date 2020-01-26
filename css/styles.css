@@ -1,6 +1,18 @@
+/* Global style starts */
+
 * {
   box-sizing: border-box;
+
 }
+
+h1 {
+  text-align: center;
+  color: firebrick;
+}
+
+/* Global style ends */
+
+/* Table style starts */
 
 table, th, td {
   border: 2px solid black;
@@ -23,7 +35,9 @@ caption {
   font-size: 1.8em;
 }
 
-h1 {
+/* Table style ends */
+
+
+.container{
   text-align: center;
-  color: firebrick;
 }
