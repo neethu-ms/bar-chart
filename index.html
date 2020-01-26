@@ -144,6 +144,29 @@
 
       //bar chart 1 ends
 
+      //bar chart 2 starts
+      data = [{ label: "2015", value: 200 }, { label: "2016", value: 250 }, { label: "2017", value: 300 }, { label: "2018", value: 320 }, { label: "2019", value: 375 }];
+
+      options = {
+        width: 700,
+        height: 500,
+        multiValue: false,
+        valuePosition: "top",
+        barColor: "yellow",
+        labelColor: "green",
+        barSpacing: 50,
+        tickValues: [0, 100, 200, 300],
+        barTitle: "Canada Population",
+        titleFontSize: 50,
+        titleColor: "red",
+        xAxis: "Year",
+        yAxis: "Population in Lakhs"
+      };
+      element = ".container";
+      drawBarChart(data, options, element);
+
+      //bar chart 2 ends
+
     });
   </script>
 </body>
