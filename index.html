@@ -37,6 +37,14 @@
         <td>E</td>
         <td>5</td>
       </tr>
+      <tr>
+        <td>F</td>
+        <td>9</td>
+      </tr>
+      <tr>
+        <td>G</td>
+        <td>2</td>
+      </tr>
     </table>
 
     <br><br><br>
@@ -120,24 +128,28 @@
   <script>
     $(document).ready(function () {
 
+
+
       // bar chart 1 starts
 
-      let data = [{ label: "A", value: 1 }, { label: "B", value: 2 }, { label: "C", value: 3 }, { label: "D", value: 4 }, { label: "E", value: 5 }];
+      let data = [{ label: "A", value: [1] }, { label: "B", value: [2] }, { label: "C", value: [3] }, { label: "D", value: [4] }, { label: "E", value: [5] },{label:"F",value:[9]},{label:"G",value:[2]}];
 
       let options = {
         width: 700,
         height: 500,
         multiValue: false,
         valuePosition: "top",
-        barColor: "brown",
+        barColor: ["brown"],
         labelColor: "blue",
         barSpacing: 50,
-        tickValues: [0, 2, 4],
+        tickValues: [0, 2, 4,6,8,10],
         barTitle: "Seat Distribution",
         titleFontSize: 50,
         titleColor: "red",
         xAxis: "Seat Name",
-        yAxis: "Seat Count"
+        yAxis: "Seat Count",
+        barNames:["seatCount"]
+
       };
       let element = ".container";
       drawBarChart(data, options, element);
@@ -145,27 +157,53 @@
       //bar chart 1 ends
 
       //bar chart 2 starts
-      data = [{ label: "2015", value: 200 }, { label: "2016", value: 250 }, { label: "2017", value: 300 }, { label: "2018", value: 320 }, { label: "2019", value: 375 }];
+      data = [{ label: "2015", value: [200] }, { label: "2016", value: [250] }, { label: "2017", value: [300] }, { label: "2018", value: [320] }, { label: "2019", value: [375] }];
 
       options = {
         width: 700,
         height: 500,
         multiValue: false,
         valuePosition: "top",
-        barColor: "yellow",
+        barColor: ["yellow"],
         labelColor: "green",
         barSpacing: 50,
-        tickValues: [0, 100, 200, 300],
+        tickValues: [0, 100, 200, 300,400],
         barTitle: "Canada Population",
         titleFontSize: 50,
         titleColor: "red",
         xAxis: "Year",
-        yAxis: "Population in Lakhs"
+        yAxis: "Population in Lakhs",
+        barNames:["population"]
       };
       element = ".container";
       drawBarChart(data, options, element);
 
       //bar chart 2 ends
+
+      //bar chart 3 starts
+      data = [{ label: "2015", value: [50,50,100] }, { label: "2016", value: [100,50,100] }, { label: "2017", value: [100,60,130] },
+      { label: "2018", value: [110,70,140] }, { label: "2019", value: [110,70,195] }];
+
+      options = {
+        width: 700,
+        height: 500,
+        multiValue: true,
+        valuePosition: "top",
+        barColor: ["yellow","brown","violet"],
+        labelColor: "green",
+        barSpacing: 50,
+        tickValues: [0,50,100,150,200],
+        barTitle: "Canada Population",
+        titleFontSize: 50,
+        titleColor: "red",
+        xAxis: "Year",
+        yAxis: "Population in Lakhs",
+        barNames:["children","elderly","others"]
+      };
+      element = ".container";
+      drawBarChart(data, options, element);
+
+      //bar chart 3 ends
 
     });
   </script>
