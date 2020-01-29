@@ -132,7 +132,7 @@
 
       // bar chart 1 starts
 
-      let data = [{ label: "A", value: [1] }, { label: "B", value: [2] }, { label: "C", value: [3] }, { label: "D", value: [4] }, { label: "E", value: [5] },{label:"F",value:[9]},{label:"G",value:[2]}];
+       let data = [{ label: "A", value: [1] }, { label: "B", value: [2] }, { label: "C", value: [3] }, { label: "D", value: [4] }, { label: "E", value: [5] }, { label: "F", value: [9] }, { label: "G", value: [2] }];
 
       let options = {
         width: 700,
@@ -142,13 +142,13 @@
         barColor: ["brown"],
         labelColor: "blue",
         barSpacing: 50,
-        tickValues: [0, 2, 4,6,8,10],
+        tickValues: [0, 2, 4, 6, 8, 10],
         barTitle: "Seat Distribution",
         titleFontSize: 50,
-        titleColor: "red",
+        titleColor: "green",
         xAxis: "Seat Name",
         yAxis: "Seat Count",
-        barNames:["seatCount"]
+        barLabels: ["seatCount"]
 
       };
       let element = ".container";
@@ -167,13 +167,13 @@
         barColor: ["yellow"],
         labelColor: "green",
         barSpacing: 50,
-        tickValues: [0, 100, 200, 300,400],
+        tickValues: [0, 100, 200, 300, 400],
         barTitle: "Canada Population",
         titleFontSize: 50,
         titleColor: "red",
         xAxis: "Year",
         yAxis: "Population in Lakhs",
-        barNames:["population"]
+        barLabels: ["population"]
       };
       element = ".container";
       drawBarChart(data, options, element);
@@ -181,24 +181,24 @@
       //bar chart 2 ends
 
       //bar chart 3 starts
-      data = [{ label: "2015", value: [50,50,100] }, { label: "2016", value: [100,50,100] }, { label: "2017", value: [100,60,130] },
-      { label: "2018", value: [110,70,140] }, { label: "2019", value: [110,70,195] }];
+       data = [{ label: "2015", value: [50, 50, 100] }, { label: "2016", value: [100, 50, 100] }, { label: "2017", value: [100, 60, 130] },
+      { label: "2018", value: [110, 70, 140] }, { label: "2019", value: [110, 70, 195] }];
 
       options = {
         width: 700,
         height: 500,
         multiValue: true,
         valuePosition: "top",
-        barColor: ["yellow","brown","violet"],
+        barColor: ["yellow", "brown", "violet"],
         labelColor: "green",
         barSpacing: 50,
-        tickValues: [0,50,100,150,200],
+        tickValues: [0, 50, 100, 150, 200],
         barTitle: "Canada Population",
         titleFontSize: 50,
-        titleColor: "red",
+        titleColor: "orange",
         xAxis: "Year",
         yAxis: "Population in Lakhs",
-        barNames:["children","elderly","others"]
+        barLabels: ["children", "elderly", "others"]
       };
       element = ".container";
       drawBarChart(data, options, element);
