@@ -2,211 +2,260 @@
 <html lang="en">
 
 <head>
-  <title>Bar Chart</title>
-  <meta charset="UTF-8" />
-  <link rel="stylesheet" href="css/styles.css" />
+    <title>Bar Chart</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/styles.css" />
 
 </head>
 
 <body>
-  <div class="container">
-    <h1> Sample Data</h1>
-    <table align="center" class="single">
-      <caption>Seat Distribution</caption>
-      <tr>
-        <th>Seat Name</th>
-        <th>Seat Count</th>
-      </tr>
-      <tr>
-        <td>A</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>B</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>C</td>
-        <td>3</td>
-      </tr>
-      <tr>
-        <td>D</td>
-        <td>4</td>
-      </tr>
-      <tr>
-        <td>E</td>
-        <td>5</td>
-      </tr>
-      <tr>
-        <td>F</td>
-        <td>9</td>
-      </tr>
-      <tr>
-        <td>G</td>
-        <td>2</td>
-      </tr>
-    </table>
+    <div class="container">
+        <h1> Sample Data</h1>
+        <table align="center" class="single">
+            <caption>Seat Distribution</caption>
+            <tr>
+                <th>Seat Name</th>
+                <th>Seat Count</th>
+            </tr>
+            <tr>
+                <td>A</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>B</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>C</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>D</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>E</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>F</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>G</td>
+                <td>2</td>
+            </tr>
+        </table>
 
-    <br><br><br>
-    <table align="center" class="single">
-      <caption>Canada Population</caption>
-      <tr>
-        <th>Year</th>
-        <th>Population in Lakhs</th>
-      </tr>
-      <tr>
-        <td>2015</td>
-        <td>200</td>
-      </tr>
-      <tr>
-        <td>2016</td>
-        <td>250</td>
-      </tr>
-      <tr>
-        <td>2017</td>
-        <td>300</td>
-      </tr>
-      <tr>
-        <td>2018</td>
-        <td>320</td>
-      </tr>
-      <tr>
-        <td>2019</td>
-        <td>375</td>
-      </tr>
-    </table>
+        <br><br><br>
+        <table align="center" class="single">
+            <caption>Canada Population</caption>
+            <tr>
+                <th>Year</th>
+                <th>Population in Lakhs</th>
+            </tr>
+            <tr>
+                <td>2015</td>
+                <td>200</td>
+            </tr>
+            <tr>
+                <td>2016</td>
+                <td>250</td>
+            </tr>
+            <tr>
+                <td>2017</td>
+                <td>300</td>
+            </tr>
+            <tr>
+                <td>2018</td>
+                <td>320</td>
+            </tr>
+            <tr>
+                <td>2019</td>
+                <td>375</td>
+            </tr>
+        </table>
 
-    <br><br><br>
+        <br><br><br>
 
-    <table align="center" class="multiple">
-      <caption>Canada Population</caption>
-      <tr>
-        <th rowspan=2>Year</th>
-        <th colspan=3>Population in Lakhs</th>
-      </tr>
-      <tr>
-        <th>Children(age<18)</th> <th>Elderly(age>=65)</th>
-        <th>Others</th>
-      </tr>
-      <tr>
-        <td>2015</td>
-        <td>50</td>
-        <td>50</td>
-        <td>100</td>
-      </tr>
-      <tr>
-        <td>2016</td>
-        <td>100</td>
-        <td>50</td>
-        <td>100</td>
-      </tr>
-      <tr>
-        <td>2017</td>
-        <td>110</td>
-        <td>60</td>
-        <td>130</td>
-      </tr>
-      <tr>
-        <td>2018</td>
-        <td>110</td>
-        <td>70</td>
-        <td>140</td>
-      </tr>
-      <tr>
-        <td>2019</td>
-        <td>110</td>
-        <td>70</td>
-        <td>195</td>
-      </tr>
-    </table>
-    <br><br><br>
-    <h1>Sample Bar Charts</h1>
-    <br><br><br>
-  </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bar-chart.js"></script>
-  <script>
-    $(document).ready(function () {
+        <table align="center" class="multiple">
+            <caption>Canada Population</caption>
+            <tr>
+                <th rowspan=2>Year</th>
+                <th colspan=3>Population in Lakhs</th>
+            </tr>
+            <tr>
+                <th>Children(age
+                    <18)</th>
+                        <th>Elderly(age>=65)</th>
+                        <th>Others</th>
+            </tr>
+            <tr>
+                <td>2015</td>
+                <td>50</td>
+                <td>50</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>2016</td>
+                <td>100</td>
+                <td>50</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>2017</td>
+                <td>110</td>
+                <td>60</td>
+                <td>130</td>
+            </tr>
+            <tr>
+                <td>2018</td>
+                <td>110</td>
+                <td>70</td>
+                <td>140</td>
+            </tr>
+            <tr>
+                <td>2019</td>
+                <td>110</td>
+                <td>70</td>
+                <td>195</td>
+            </tr>
+        </table>
+        <br><br><br>
+        <h1>Sample Bar Charts</h1>
+        <br><br><br>
+    </div>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bar-chart.js"></script>
+    <script>
+        $(document).ready(function() {
 
 
 
-      // bar chart 1 starts
+            // bar chart 1 starts
 
-       let data = [{ label: "A", value: [1] }, { label: "B", value: [2] }, { label: "C", value: [3] }, { label: "D", value: [4] }, { label: "E", value: [5] }, { label: "F", value: [9] }, { label: "G", value: [2] }];
+            let data = [{
+                label: "A",
+                value: [1]
+            }, {
+                label: "B",
+                value: [2]
+            }, {
+                label: "C",
+                value: [3]
+            }, {
+                label: "D",
+                value: [4]
+            }, {
+                label: "E",
+                value: [5]
+            }, {
+                label: "F",
+                value: [9]
+            }, {
+                label: "G",
+                value: [2]
+            }];
 
-      let options = {
-        width: 700,
-        height: 500,
-        multiValue: false,
-        valuePosition: "top",
-        barColor: ["brown"],
-        labelColor: "blue",
-        barSpacing: 50,
-        tickValues: [0, 2, 4, 6, 8, 10],
-        barTitle: "Seat Distribution",
-        titleFontSize: 50,
-        titleColor: "green",
-        xAxis: "Seat Name",
-        yAxis: "Seat Count",
-        barLabels: ["seatCount"]
+            let options = {
+                width: 700,
+                height: 500,
+                valuePosition: "bottom",
+                barColor: ["brown"],
+                labelColor: "blue",
+                barSpacing: 50,
+                tickValues: [0, 2, 4, 6, 8, 10],
+                barTitle: "Seat Distribution",
+                titleFontSize: 50,
+                titleColor: "green",
+                xAxis: "Seat Name",
+                yAxis: "Seat Count",
+                barLabels: ["seatCount"]
 
-      };
-      let element = ".container";
-      drawBarChart(data, options, element);
+            };
+            let element = ".container";
+            drawBarChart(data, options, element);
 
-      //bar chart 1 ends
+            //bar chart 1 ends
 
-      //bar chart 2 starts
-      data = [{ label: "2015", value: [200] }, { label: "2016", value: [250] }, { label: "2017", value: [300] }, { label: "2018", value: [320] }, { label: "2019", value: [375] }];
+            //bar chart 2 starts
+            data = [{
+                label: "2015",
+                value: [200]
+            }, {
+                label: "2016",
+                value: [250]
+            }, {
+                label: "2017",
+                value: [300]
+            }, {
+                label: "2018",
+                value: [320]
+            }, {
+                label: "2019",
+                value: [375]
+            }];
 
-      options = {
-        width: 700,
-        height: 500,
-        multiValue: false,
-        valuePosition: "top",
-        barColor: ["yellow"],
-        labelColor: "green",
-        barSpacing: 50,
-        tickValues: [0, 100, 200, 300, 400],
-        barTitle: "Canada Population",
-        titleFontSize: 50,
-        titleColor: "red",
-        xAxis: "Year",
-        yAxis: "Population in Lakhs",
-        barLabels: ["population"]
-      };
-      element = ".container";
-      drawBarChart(data, options, element);
+            options = {
+                width: 700,
+                height: 500,
+                valuePosition: "top",
+                barColor: ["yellow"],
+                labelColor: "green",
+                barSpacing: 50,
+                tickValues: [0, 100, 200, 300, 400],
+                barTitle: "Canada Population",
+                titleFontSize: 50,
+                titleColor: "red",
+                xAxis: "Year",
+                yAxis: "Population in Lakhs",
+                barLabels: ["population"]
+            };
+            element = ".container";
+            drawBarChart(data, options, element);
 
-      //bar chart 2 ends
+            //bar chart 2 ends
 
-      //bar chart 3 starts
-       data = [{ label: "2015", value: [50, 50, 100] }, { label: "2016", value: [100, 50, 100] }, { label: "2017", value: [100, 60, 130] },
-      { label: "2018", value: [110, 70, 140] }, { label: "2019", value: [110, 70, 195] }];
+            //bar chart 3 starts
+            data = [{
+                label: "2015",
+                value: [50, 50, 100]
+            }, {
+                label: "2016",
+                value: [100, 50, 100]
+            }, {
+                label: "2017",
+                value: [100, 60, 130]
+            }, {
+                label: "2018",
+                value: [110, 70, 140]
+            }, {
+                label: "2019",
+                value: [110, 70, 195]
+            }];
 
-      options = {
-        width: 700,
-        height: 500,
-        multiValue: true,
-        valuePosition: "top",
-        barColor: ["yellow", "brown", "violet"],
-        labelColor: "green",
-        barSpacing: 50,
-        tickValues: [0, 50, 100, 150, 200],
-        barTitle: "Canada Population",
-        titleFontSize: 50,
-        titleColor: "orange",
-        xAxis: "Year",
-        yAxis: "Population in Lakhs",
-        barLabels: ["children", "elderly", "others"]
-      };
-      element = ".container";
-      drawBarChart(data, options, element);
+            options = {
+                width: 700,
+                height: 500,
+                valuePosition: "center",
+                barColor: ["yellow", "brown", "violet"],
+                labelColor: "green",
+                barSpacing: 50,
+                tickValues: [0, 50, 100, 150, 200],
+                barTitle: "Canada Population",
+                titleFontSize: 50,
+                titleColor: "orange",
+                xAxis: "Year",
+                yAxis: "Population in Lakhs",
+                barLabels: ["children", "elderly", "others"]
+            };
+            element = ".container";
+            drawBarChart(data, options, element);
 
-      //bar chart 3 ends
+            //bar chart 3 ends
 
-    });
-  </script>
+        });
+    </script>
 </body>
 
 </html>
