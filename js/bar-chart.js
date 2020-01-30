@@ -4,90 +4,29 @@ let barCount = 0; //To keep track of the bar chart count
 function drawBarChart(data, options, element) {
     let prefix = "A" + barCount; // prefix is used to avoid overlapping of styles of bar charts when multiple bar charts are drawn in a single html page
     barCount++;
-    let maxValue = getMaxValue(data, options); // Finding maximum value
-    $(element).append('<div class="' + prefix + 'barContainer"></div>'); //Added a div element for bar chart. All the components of bar chart are added to this
-    addBarChartTitle(prefix, options); //Add bar chart title
-    styleBarChartTitle(prefix, options); //style bar chart title
-    drawAxes(prefix, options); //draw axes
-    addAxisLabels(prefix, options); //add axis labels
-    styleAxesLabels(prefix, options, maxValue); //style and position axis labels
-    addTickValues(prefix, options, maxValue); //adding tick values
-    addValueBox(prefix, data, options); //creating box for identifying each bar
-    drawBar(prefix, data); //draw bars
-    styleBars(prefix, options, data, maxValue); //style bars
+   $(element).append('<div class="' + prefix + 'barContainer"></div>'); //Added a div element for bar chart. All the components of bar chart are added to this
+    addAndStyleBarChartTitle(prefix, options, "." + prefix + "barContainer"); //Add bar chart title and style it
+    drawBarChartDiagram(prefix, options, data, "." + prefix + "barContainer"); //draw bar chart diagram
+
+
 } //API for bar chart ends
 
 /* Function for adding Bar Chart Title starts*/
-function addBarChartTitle(prefix, options) {
-    $("." + prefix + "barContainer").append(
+function addAndStyleBarChartTitle(prefix, options, element) {
+    $(element).append(
         '<h1 class="' + prefix + 'barTitle">' + options.barTitle + "</h1>"
     );
+    styleBarChartTitle(options, "." + prefix + "barTitle"); //style bar chart title
 } /* Function for adding Bar Chart Title ends*/
 
 /* Function for styling Bar Chart Title starts*/
-function styleBarChartTitle(prefix, options) {
-    $("." + prefix + "barTitle").css({
+function styleBarChartTitle(options, element) {
+    $(element).css({
         color: options.titleColor,
         "font-size": options.titleFontSize + "px"
     });
 }
 /* Function for styling Bar Chart Title ends*/
-
-/* Function for drawing axes start*/
-function drawAxes(prefix, options) {
-    let width = options.width;
-    let height = options.height;
-    $("." + prefix + "barContainer").append(
-        '<div class="' + prefix + 'barChart"></div>'
-    );
-    $("." + prefix + "barChart").css({
-        width: width + "px",
-        height: height + "px",
-        "border-left": "2px solid black",
-        "border-bottom": "2px solid black",
-        display: "inline-block"
-    });
-}
-/* Function for drawing axes end */
-
-/* Function for adding labels for x axis and y axis starts */
-function addAxisLabels(prefix, options) {
-    $("." + prefix + "barChart").append(
-        '<h2 class="' + prefix + 'yaxis">' + options.yAxis + "</h2>"
-    );
-    $("." + prefix + "barContainer").append(
-        '<h2 class="' + prefix + "xaxis" + '">' + options.xAxis + "</h2>"
-    );
-}
-/* Function for adding labels for x axis and y axis ends */
-
-/* Function to style axes labels start */
-function styleAxesLabels(prefix, options, maxValue) {
-    let height = options.height;
-    let yaxisLabelLeftMargin = -90;
-    //To adjust the position of y axis label based on the number of digits in maximum value
-    if (maxValue >= 100 && maxValue < 1000) {
-        yaxisLabelLeftMargin = -165;
-    } else if (maxValue > 1000) {
-        yaxisLabelLeftMargin = -185;
-    }
-    $("." + prefix + "yaxis").css({
-        position: "absolute",
-        "margin-left": yaxisLabelLeftMargin + "px",
-        height: "200px",
-        transform: "rotate(-90deg)",
-        "margin-top": height / 3 + "px",
-        color: options.labelColor
-    });
-
-    $("." + prefix + "xaxis").css({
-        align: "center",
-        height: "200px",
-        color: options.labelColor,
-        "padding-top": "90px"
-    });
-}
-/* Function to style axes labels end */
 
 /* Function to find the maximum value of the data starts*/
 function getMaxValue(data, options) {
@@ -115,14 +54,93 @@ function getMaxValue(data, options) {
 }
 /* Function to find the maximum value of the data ends*/
 
+/* Function for drawing axes start*/
+function drawBarChartDiagram(prefix, options, data, element) {
+    let maxValue = getMaxValue(data, options); // Finding maximum value
+
+    //the entire bar chart diagram is in a div
+    $(element).append(
+        '<div class="' + prefix + 'barChart"></div>'
+    );
+    $("." + prefix + "barChart").css({ "display": "inline-block" });  // To add absolute positions for child elements
+
+    drawAxes(options, "." + prefix + "barChart"); //draw Bar chart axes
+    addAndStyleAxisLabels(prefix, options, element, "." + prefix + "barChart", maxValue); //add axis labels
+    addTickValues(prefix, options, "." + prefix + "barChart", maxValue); //adding tick values
+    addAndStyleValueBox(prefix, data, options, "." + prefix + "barChart"); //creating box for identifying each bar
+    drawAndStyleBar(prefix, data, options, "." + prefix + "barChart", maxValue); //draw bars
+
+}
+
+/* Function for drawing axes start */
+
+function drawAxes(options, element) {
+    let width = options.width;
+    let height = options.height;
+    $(element).css({
+        width: width + "px",
+        height: height + "px",
+        "border-left": "2px solid black",
+        "border-bottom": "2px solid black"
+
+    });
+}
+
+/* Function for drawing axes end */
+
+/* Function for adding labels for x axis and y axis starts */
+function addAndStyleAxisLabels(prefix, options, element1, element2, maxValue) {
+    $(element1).append(
+        '<h2 class="' + prefix + "xaxis" + '">' + options.xAxis + "</h2>"
+    );
+    $(element2).append(
+        '<h2 class="' + prefix + 'yaxis">' + options.yAxis + "</h2>"
+    );
+
+    styleAxesLabels(options, "." + prefix + "xaxis", "." + prefix + "yaxis", maxValue); //style and position axis labels
+
+}
+/* Function for adding labels for x axis and y axis ends */
+
+/* Function to style axes labels start */
+function styleAxesLabels(options, element1, element2, maxValue) {
+    let height = options.height;
+    let yaxisLabelLeftMargin = -90;
+    //To adjust the position of y axis label based on the number of digits in maximum value
+    if (maxValue >= 100 && maxValue < 1000) {
+        yaxisLabelLeftMargin = -165;
+    } else if (maxValue > 1000) {
+        yaxisLabelLeftMargin = -185;
+    }
+
+    $(element1).css({
+        align: "center",
+        height: "200px",
+        color: options.labelColor,
+        "padding-top": "90px"
+    });
+
+    $(element2).css({
+        position: "absolute",
+        "margin-left": yaxisLabelLeftMargin + "px",
+        height: "200px",
+        transform: "rotate(-90deg)",
+        "margin-top": height / 3 + "px",
+        color: options.labelColor
+    });
+
+
+}
+/* Function to style axes labels end */
+
 /* Function to add tick values start */
-function addTickValues(prefix, options, maxValue) {
+function addTickValues(prefix, options, element, maxValue) {
     let tickCount = options.tickValues.length;
     let height = options.height;
     //Creating tick marks using horizontal line and also adding tick values
     for (let i = 0; i < tickCount; i++) {
-        $("." + prefix + "barChart").append('<h2 class="' + prefix + "tickValue" + i + '">' + options.tickValues[i] + '</h2>');
-        $("." + prefix + "barChart").append('<hr class="' + prefix + "hr" + i + '">');
+        $(element).append('<h2 class="' + prefix + "tickValue" + i + '">' + options.tickValues[i] + '</h2>');
+        $(element).append('<hr class="' + prefix + "hr" + i + '">');
     }
     for (let i = 0; i < tickCount; i++) {
         let tickDistance = (options.tickValues[i] / maxValue) * height;
@@ -146,11 +164,11 @@ function addTickValues(prefix, options, maxValue) {
 /* Function to add tick values end */
 
 /* Function to draw box for identifying each bar start */
-function addValueBox(prefix, data, options) {
+function addAndStyleValueBox(prefix, data, options, element) {
     let noOfBars = data[0].value.length;
     let width = options.width;
     if (data[0].value.length > 0) {
-        $("." + prefix + "barChart").append(
+        $(element).append(
             '<div class="' + prefix + 'valueBox flexColumn"></div>'
         );
         for (let j = 0; j < noOfBars; j++) {
@@ -196,23 +214,23 @@ function addValueBox(prefix, data, options) {
 /* Function to draw box for identifying each bar end */
 
 /* function to draw individual bar start*/
-function drawBar(prefix, data) {
+function drawAndStyleBar(prefix, data, options, element, maxValue) {
     let noOfBars = data[0].value.length;
     // To align elements as a row using the class flexRow
-    $("." + prefix + "barChart").append('<div class="flexRow"></div>');
+    $(element).append('<div class="flexRow"></div>');
 
     for (let i = 0; i < data.length; i++) {
         //using flexColumn to arrange elements as a column
-        $("." + prefix + "barChart > .flexRow").append(
+        $(element + " > .flexRow").append(
             '<div class="flexColumn"></div>'
         );
 
-        $($("." + prefix + "barChart > .flexRow  > .flexColumn")[i]).append(
+        $($(element + " > .flexRow  > .flexColumn")[i]).append(
             '<div class="flexRow"></div>'
         );
         for (let j = 0; j < noOfBars; j++) {
             $(
-                $("." + prefix + "barChart > .flexRow > .flexColumn > .flexRow")[i]
+                $(element + " > .flexRow > .flexColumn > .flexRow")[i]
             ).append(
                 '<div class="' +
                 prefix +
@@ -227,13 +245,26 @@ function drawBar(prefix, data) {
                 data[i].value[j] +
                 "</p></div>"
             );
+
+            //style bar
+            styleBar(prefix, options, data, maxValue, "." + prefix +
+                "bar" +
+                i +
+                "B" +
+                j, i, j);
+            //position bar value
+            positionValue(options, "." + prefix +
+                "bar" +
+                i +
+                "B" +
+                j, ".valueStyle");
         }
 
-        $($("." + prefix + "barChart > .flexRow  > .flexColumn")[i]).append(
+        $($(element + " > .flexRow  > .flexColumn")[i]).append(
             "<h2>" + data[i].label + "</h2>"
         );
 
-        $("." + prefix + "barChart > .flexRow").append(
+        $(element + " > .flexRow").append(
             '<div class="' + prefix + 'space"></div>'
         );
     }
@@ -242,7 +273,7 @@ function drawBar(prefix, data) {
 /* function to draw individual bar end*/
 
 /* function to style bar starts*/
-function styleBars(prefix, options, data, maxValue) {
+function styleBar(prefix, options, data, maxValue, element, i, j) {
     let noOfBars = data[0].value.length;
     let height = options.height;
     let width = options.width;
@@ -252,32 +283,18 @@ function styleBars(prefix, options, data, maxValue) {
     //bar Width is computed based on the value count
     let barWidth = (width - spaceWidth * valueCount) / valueCount / noOfBars;
 
-    for (let i = 0; i < data.length; i++) {
-        $(".flexColumn").css({ display: "flex", "flex-direction": "column" });
-        $(".flexRow").css({ display: "flex", "flex-direction": "row" });
 
-        //computing bar height based on the maximum value
-        for (let j = 0; j < noOfBars; j++) {
-            let barHeight = (data[i].value[j] / maxValue) * height;
+    $(".flexColumn").css({ display: "flex", "flex-direction": "column" });
+    $(".flexRow").css({ display: "flex", "flex-direction": "row" });
 
-            $("." + prefix + "bar" + i + "B" + j).css({
-                height: barHeight + "px",
-                "margin-top": height - barHeight + "px",
-                "background-color": options.barColor[j],
-                "display": "flex" // To position the value inside the bar.
+    //computing bar height based on the maximum value
+    let barHeight = (data[i].value[j] / maxValue) * height;
 
-            });
-
-            // To position the value inside the bar.
-            if (options.valuePosition === "top")
-                $("." + prefix + "bar" + i + "B" + j).css({ "align-items": "flex-start" });
-            else if (options.valuePosition === "center")
-                $("." + prefix + "bar" + i + "B" + j).css({ "align-items": "center" });
-            else
-                $("." + prefix + "bar" + i + "B" + j).css({ "align-items": "flex-end" });
-
-        }
-    }
+    $(element).css({
+        height: barHeight + "px",
+        "margin-top": height - barHeight + "px",
+        "background-color": options.barColor[j]
+    });
 
     $("." + prefix + "bar").css({
         width: barWidth + "px",
@@ -285,8 +302,21 @@ function styleBars(prefix, options, data, maxValue) {
 
     });
     $("." + prefix + "space").css("width", spaceWidth + "px");
-
-    $(".valueStyle").css({ "margin": "0 auto" });
-
 }
 /* function to style bar ends*/
+
+/* Function for positioning bar values */
+function positionValue(options, element1, element2) {
+
+    // To position the value inside the bar.
+
+    $(element1).css({ "display": "flex" });
+    if (options.valuePosition === "top")
+        $(element1).css({ "align-items": "flex-start" });
+    else if (options.valuePosition === "center")
+        $(element1).css({ "align-items": "center" });
+    else
+        $(element1).css({ "align-items": "flex-end" });
+
+    $(element2).css({ "margin": "0 auto" });
+}
