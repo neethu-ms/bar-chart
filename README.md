@@ -1,4 +1,4 @@
-# bar-chart
+# bar-chart.js
 
 A bar chart library to draw single valued and multi valued bar chart
 
@@ -35,7 +35,7 @@ A bar chart library to draw single valued and multi valued bar chart
 
    a.width should be provided in pixel ( width of the bar chart container). It should be numeric.
    b.height should be provided in pixel ( height of the bar chart container). It should be numeric.
-   c.valuePosition - position of the value inside bar. It should be string ( can be "top","bottom" or "center")
+   c.valuePosition - position of the value inside bar. It should be string ( can be "top", "bottom" or "center")
    d.barColor - colors of individual bars. It should be an array of strings
    e.labelColor - color of  label(x and y). It should be string.
    f.barSpacing - space between the bars in px. Should be numeric.
@@ -68,7 +68,13 @@ A bar chart library to draw single valued and multi valued bar chart
 
 4. All the arguments are mandatory.
 5. Count of values for individual bar and the count of barcolor and barLabels should be same
-  eg.
-  value: [110, 70, 195]
-  barColor: ["yellow", "brown", "violet"]
-  barLabels:["children", "elderly", "others"]
+
+     eg.
+        value: [110, 70, 195]
+        barColor: ["yellow", "brown", "violet"]
+        barLabels:["children", "elderly", "others"]
+
+## Example Bar Charts
+
+![barchart1](images/barchart1.png)
+![barchart2](images/barchart2.png)
