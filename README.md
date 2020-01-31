@@ -10,8 +10,8 @@ A bar chart library to draw single valued and multi valued bar chart
 
 1. data - An array of objects
 
-   a.label(x axis) and value(y axis) are the object attributes
-   b.label should be a string and value should be an array of numerical values
+   a. label(x axis) and value(y axis) are the object attributes
+   b. label should be a string and value should be an array of numerical values
 
       eg.
             data = [{
@@ -33,18 +33,18 @@ A bar chart library to draw single valued and multi valued bar chart
 
 2. options
 
-   a.width should be provided in pixel ( width of the bar chart container). It should be numeric.  
-   b.height should be provided in pixel ( height of the bar chart container). It should be numeric.  
-   c.valuePosition - position of the value inside bar. It should be string ( can be "top", "bottom" or "center")  
-   d.barColor - colors of individual bars. It should be an array of strings  
-   e.labelColor - color of  label(x and y). It should be string.  
-   f.barSpacing - space between the bars in px. Should be numeric.  
-   g.tickValues - values that should show tick. Should be an array of numbers.  
-   f.titleFontSize - font size of title.  
-   g.barTitle, xAxis, yAxis - title of bar diagaram, x axis and y axis respectively. All these should be string.  
-   h.titleFontSize - font size of the title in px. Should be numeric.  
-   i.titleColor - color of the bar title. It should be string.  
-   h.barLabels- Names of individual bars. It should be an array of string  
+   a. width should be provided in pixel ( width of the bar chart container). It should be numeric.  
+   b. height should be provided in pixel ( height of the bar chart container). It should be numeric.  
+   c. valuePosition - position of the value inside bar. It should be string ( can be "top", "bottom" or "center")  
+   d. barColor - colors of individual bars. It should be an array of strings  
+   e. labelColor - color of  label(x and y). It should be string.  
+   f. barSpacing - space between the bars in px. Should be numeric.  
+   g. tickValues - values that should show tick. Should be an array of numbers.  
+   f. titleFontSize - font size of title.  
+   g. barTitle, xAxis, yAxis - title of bar diagaram, x axis and y axis respectively. All these should be string.  
+   h. titleFontSize - font size of the title in px. Should be numeric.  
+   i. titleColor - color of the bar title. It should be string.  
+   h. barLabels- Names of individual bars. It should be an array of string  
 
       eg. options = {  
         width: 700,  
@@ -59,7 +59,7 @@ A bar chart library to draw single valued and multi valued bar chart
         titleColor: "red",  
         xAxis: "Year",  
         yAxis: "Population in Lakhs",  
-        barLabels:["children","elderly","others"]  
+        barLabels: ["children","elderly","others"]  
       };  
 
 3. element
