@@ -6,6 +6,11 @@ A bar chart library to draw single valued and multi valued bar chart
 
 1. jQuery library is required
 
+## API function to be used
+
+   drawBarChart(data, options, element);  
+   This function will accept the data values of the graph. Based on the data values and options will draw the graph in the specified element.
+
 ## Function parameters for Bar Chart
 
 1. data - An array of objects
@@ -82,3 +87,28 @@ A bar chart library to draw single valued and multi valued bar chart
 ## GitHub page
 
    <https://neethu-ms.github.io/bar-chart/>  
+
+## Known bugs/issues
+
+1. It is mandatory to give all the values for the api function. Code will be further modified by making some arguments as optional.
+
+## Future Enhancements
+
+1. Accept table as data values.
+2. Add more options like adding animation for bar chart.
+
+## References
+
+   1. <https://www.google.com/search?q=different+bar+charts+population+of+year+example&sxsrf=ACYBGNTmdW--9NRbJKd8G3zkwoxOcQKNLg:1579538290570&tbm=isch&source=iu&ictx=1&fir=UFoc6i9TuIvaaM%253A%252CHPz2_k8-Xif6GM%252C_&vet=1&usg=AI4_-kTmxYnf_7Q0JERGXanIyT8Yg0gjHg&sa=X&ved=2ahUKEwjew9_VzpLnAhVOLs0KHUlKBZQQ9QEwAHoECAoQBQ#imgrc=1FrTqxB95uvwZM>  
+
+   2. <https://www.w3schools.com/html/html_tables.asp>  
+   3. <https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1710000501>  
+   4. <https://www.w3schools.com/html/html_css.asp>  
+   5. <https://www.w3schools.com/jquery/jquery_css.asp>  
+   6. <https://www.w3schools.com/jquery/html_append.asp>
+   7. <https://www.htmlgoodies.com/beyond/css/css-ref/create-a-chart-plot-line-using-a-pure-html-and-css-solution.html>  
+   8. <https://stackoverflow.com/questions/4264527/vertical-text-direction>  
+   9. <https://www.freecodecamp.org/news/how-to-center-things-with-style-in-css-dc87b7542689/>  
+   10. <https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#images>  
+   11. <https://gist.github.com/shaunlebron/746476e6e7a4d698b373>  
+   12. <https://code.visualstudio.com/docs/languages/markdown>  
